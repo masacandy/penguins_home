@@ -1,0 +1,73 @@
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  Exclude:
+    - "vendor/**/*" # rubocop config/default.yml
+    - "db/schema.rb"
+    - "db/fixtures/**" # seed data
+    - "spec/**"
+
+  DisplayCopNames: true
+  TargetRubyVersion: 2.3
+
+Rails:
+  Enabled: true
+
+##################### Style ##################################
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# 複数行の場合はケツカンマを入れる
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+# 引数の複数行の場合はケツカンマを入れない
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma
+
+# class先頭のコメントを省略する
+Style/Documentation:
+    Enabled: false
+
+# selfは省略しない
+Style/RedundantSelf:
+    Enabled: false
+
+# 引数前のスペースは複数許可
+Style/SpaceBeforeFirstArg:
+    Enabled: false
+
+# lambdaの呼び出しでcallを使用しなくてもOKにする
+Style/LambdaCall:
+  Enabled: false
+
+# 文字列リテラルをfreezeするコメント行(frozen_string_literal: true)を不要にする
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# メソッド呼び出しの行から1段階インデントしてもOKにする
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+##################### Lint ##################################
+
+# 引数前のスペースを許容する
+Lint/ParenthesesAsGroupedExpression:
+    Enabled: false
+
+##################### Metrics ##################################
+
+# * 警告 120文字
+# * 禁止 160文字
+# のイメージ
+Metrics/LineLength:
+  Max: 180
+  Exclude:
+    - "db/migrate/*.rb"
+
+# 20 行超えるのは migration ファイル以外滅多に無い
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
