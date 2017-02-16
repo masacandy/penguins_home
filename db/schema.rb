@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216145635) do
+ActiveRecord::Schema.define(version: 20170216150211) do
+
+  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tournament_id",  null: false
+    t.datetime "held_at"
+    t.string   "location"
+    t.string   "opponent"
+    t.integer  "team_score"
+    t.integer  "opponent_score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tournament_id"], name: "index_games_on_tournament_id", using: :btree
+  end
 
   create_table "team_tournaments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "team_id",       null: false
