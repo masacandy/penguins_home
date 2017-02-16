@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216150211) do
+ActiveRecord::Schema.define(version: 20170216151629) do
 
   create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "tournament_id",  null: false
@@ -22,6 +22,38 @@ ActiveRecord::Schema.define(version: 20170216150211) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["tournament_id"], name: "index_games_on_tournament_id", using: :btree
+  end
+
+  create_table "stats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                             null: false
+    t.integer  "game_id",                             null: false
+    t.integer  "two_point_made",      default: 0,     null: false
+    t.string   "two_point_attempt"
+    t.integer  "three_point_made",    default: 0,     null: false
+    t.integer  "three_point_attempt"
+    t.integer  "free_throw_made",     default: 0,     null: false
+    t.integer  "free_throw_attempt"
+    t.integer  "offence_rebound",     default: 0,     null: false
+    t.integer  "deffence_rebound",    default: 0,     null: false
+    t.integer  "assist",              default: 0,     null: false
+    t.integer  "block",               default: 0,     null: false
+    t.integer  "steal",               default: 0,     null: false
+    t.integer  "play_time",           default: 0,     null: false
+    t.integer  "turn_over",           default: 0,     null: false
+    t.integer  "personal_foul",       default: 0,     null: false
+    t.boolean  "starting_member",     default: false, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["assist"], name: "index_stats_on_assist", using: :btree
+    t.index ["block"], name: "index_stats_on_block", using: :btree
+    t.index ["deffence_rebound"], name: "index_stats_on_deffence_rebound", using: :btree
+    t.index ["free_throw_made"], name: "index_stats_on_free_throw_made", using: :btree
+    t.index ["offence_rebound"], name: "index_stats_on_offence_rebound", using: :btree
+    t.index ["starting_member"], name: "index_stats_on_starting_member", using: :btree
+    t.index ["steal"], name: "index_stats_on_steal", using: :btree
+    t.index ["three_point_made"], name: "index_stats_on_three_point_made", using: :btree
+    t.index ["two_point_made"], name: "index_stats_on_two_point_made", using: :btree
+    t.index ["user_id", "game_id"], name: "index_stats_on_user_id_and_game_id", unique: true, using: :btree
   end
 
   create_table "team_tournaments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
