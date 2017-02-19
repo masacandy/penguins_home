@@ -6,10 +6,12 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
+    before_action :authenticate_admin, if: :production?
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      authenticate_or_request_with_http_basic do |user,pass|
+        user == ENV["BASIC_AUTH_USER"] && pass == ENV["BASIC_AUTH_PASSWORD"]
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -17,5 +19,11 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    private
+
+    def production?
+      Rails.env.production?
+    end
   end
 end
