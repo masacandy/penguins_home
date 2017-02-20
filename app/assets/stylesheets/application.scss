@@ -1,6 +1,12 @@
 @import "materialize/components/color";
 $primary-color: color("grey", "darken-1") !default;
 @import 'materialize';
-
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "bourbon";
 @import "neat";
+
+@media only screen and (min-width: 992px) {
+  nav .brand-logo {
+    margin-left: 16px;
+  }
+}

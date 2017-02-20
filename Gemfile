@@ -37,6 +37,7 @@ gem 'draper', git: 'https://github.com/drapergem/draper.git', tag: 'v3.0.0.pre1'
 
 gem 'slim-rails'
 
+gem 'turbolinks', '~> 5.0.0'
 gem 'materialize-sass'
 
 gem "administrate", "~> 0.3.0"
