@@ -10,3 +10,19 @@ $primary-color: color("grey", "darken-1") !default;
     margin-left: 16px;
   }
 }
+
+h1.title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+h2.category-name {
+  color: #757575;
+  font-weight: bold;
+  font-size: 1.0625rem;
+}
+
+h2.with-border {
+  border-bottom: 1px solid #757575;
+  padding-bottom: 8px;
+}
