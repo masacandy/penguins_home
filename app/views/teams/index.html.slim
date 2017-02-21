@@ -6,7 +6,8 @@
         .col-12
           - last_game = @team.tournaments.last.games.last
           - result = last_game.team_score > last_game.opponent_score ? 'win' : 'lose'
-          = "vs #{last_game.opponent} #{last_game.team_score} - #{last_game.opponent_score} #{result}"
+          = link_to "vs #{last_game.opponent} #{last_game.team_score} - #{last_game.opponent_score} #{result}", tournament_game_path(tournament_id: @team.tournaments.last.id, id: last_game.id)
+
   .row
     h1.title シーズン中の大会スコア
 
