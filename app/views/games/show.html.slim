@@ -1,1 +1,50 @@
-= @game
+.container
+  .row
+    h1.title = "vs #{@game.opponent}"
+    h2 = "#{@game.team_score} - #{@game.opponent_score}"
+
+  .col-12
+    - if @game.stats.present?
+      table.responsive-table.striped
+        thead
+          tr
+            th Number
+            th Name
+            th PT
+            th Points
+            th 2PTM
+            th 2PTA
+            th 3PTM
+            th 3PTA
+            th FTM
+            th FTA
+            th OR
+            th DR
+            th AS
+            th BL
+            th ST
+            th TO
+            th PF
+        tbody
+          - User.where(id: @game.stats.pluck(:user_id)).order(number: :asc).each do |user|
+            tr
+              td = user.number
+              td = "#{user.last_name} #{user.first_name}"
+              - stats = @game.stats.find_by(user_id: user.id)
+              td = stats.play_time.presence || '-'
+              td = 2 * stats.two_point_made + 3 * stats.three_point_made + 1 * stats.free_throw_made
+              td = stats.two_point_made
+              td = stats.two_point_attempt.presence || '-'
+              td = stats.three_point_made
+              td = stats.three_point_attempt.presence || '-'
+              td = stats.free_throw_made
+              td = stats.free_throw_attempt.presence || '-'
+              td = stats.offence_rebound.presence || '-'
+              td = stats.deffence_rebound.presence || '-'
+              td = stats.assist.presence || '-'
+              td = stats.block.presence || '-'
+              td = stats.steal.presence || '-'
+              td = stats.turn_over.presence || '-'
+              td = stats.personal_foul
+    - else
+      p 未登録です
