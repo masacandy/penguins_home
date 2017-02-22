@@ -12,7 +12,7 @@ class TournamentDashboard < Administrate::BaseDashboard
     name: Field::String,
     season_start: Field::DateTime,
     season_end: Field::DateTime,
-    game_type: Field::Number,
+    game_type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

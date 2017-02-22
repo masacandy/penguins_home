@@ -37,6 +37,7 @@ gem 'draper', git: 'https://github.com/drapergem/draper.git', tag: 'v3.0.0.pre1'
 
 gem 'slim-rails'
 
+gem 'turbolinks', '~> 5.0.0'
 gem 'materialize-sass'
 
 gem "administrate", "~> 0.3.0"
@@ -59,8 +60,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'bullet'
 end

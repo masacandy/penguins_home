@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   has_many :stats
 
-  belongs_to :teams
+  belongs_to :team
 end

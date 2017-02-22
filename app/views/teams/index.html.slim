@@ -1,0 +1,31 @@
+.container
+  .row
+    h1.title 最新の試合結果
+    .col.s12.m8.l9
+      .row
+        .col-12
+          - last_game = @team.tournaments.last.games.last
+          - result = last_game.team_score > last_game.opponent_score ? 'win' : 'lose'
+          = link_to "vs #{last_game.opponent} #{last_game.team_score} - #{last_game.opponent_score} #{result}", tournament_game_path(tournament_id: @team.tournaments.last.id, id: last_game.id)
+
+  .row
+    h1.title シーズン中の大会スコア
+
+    .col.s12.m8.l9
+      .row
+      - current_time = Time.zone.now
+      - if true
+        h2.category-name 準備中
+      - else
+        - @team.tournaments.where('season_start < ? and season_end > ?', current_time, current_time).each do  |tournament|
+          .col.s12.m4.l4
+            h2.category-name.with-border Points
+            - top_points = tournament.games.last.stats.order(points: :desc).limit(3)
+            - top_points.each_with_index do |stats, index|
+              = (index + 1). stats.user.name
+          .col.s12.m4.l4
+            h2.category-name Rebounds
+          .col.s12.m4.l4
+            h2.category-name Assist
+
+    .col.s12.m4.l3

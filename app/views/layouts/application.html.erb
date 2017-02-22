@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PenguinsHome</title>
+    <title><%= "#{@team.name} stats"%></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
+	 <nav>
+    <div class="nav-wrapper">
+      <%= link_to 'Stats', root_path, class: "brand-logo" %>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+ <!--
+      <ul class="right hide-on-med-and-down">
+        <li><a href=#>TOP</a></li>
+        <li><a href=#>Tournaments</a></li>
+        <li><a href=#>Players</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href=#>TOP</a></li>
+        <li><a href=#>Tournaments</a></li>
+        <li><a href=#>Players</a></li>
+      </ul>
+-->
+    </div>
+  </nav>
+
   <body>
     <%= yield %>
+    <script>
+      // Initialize collapse button
+      $(".button-collapse").sideNav();
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      //$('.collapsible').collapsible();
+    </script>
   </body>
 </html>
