@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     resources :games
     resources :stats
     resources :teams
-    resources :team_tournaments
     resources :tournaments
     resources :users
 
