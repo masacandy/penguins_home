@@ -31,7 +31,6 @@ class UserDashboard < Administrate::BaseDashboard
     :team,
     :last_name,
     :first_name,
-    :nickname,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,11 +39,8 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :last_name,
     :first_name,
-    :nickname,
     :user_name,
     :email,
-    :phone_number,
-    :birthday,
     :team,
     :created_at,
     :updated_at,
@@ -56,11 +52,8 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :last_name,
     :first_name,
-    :nickname,
     :user_name,
     :email,
-    :phone_number,
-    :birthday,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
