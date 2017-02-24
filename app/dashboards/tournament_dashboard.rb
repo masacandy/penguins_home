@@ -12,7 +12,7 @@ class TournamentDashboard < Administrate::BaseDashboard
     name: Field::String,
     season_start: Field::DateTime,
     season_end: Field::DateTime,
-    game_type: Field::String,
+    game_type: Field::EnumField.with_options(enum: Tournament.game_types),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -54,7 +54,7 @@ class TournamentDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how tournaments are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(tournament)
-  #   "Tournament ##{tournament.id}"
-  # end
+  def display_resource(tournament)
+    tournament.name
+  end
 end
