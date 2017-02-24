@@ -9,7 +9,7 @@ class GameDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    tournament_id: Field::Number,
+    tournament_id: Field::TeamTournamentField.with_options(tournaments: Team.find(Team::PENGUINS).tournaments),
     held_at: Field::DateTime,
     location: Field::String,
     opponent: Field::String,
