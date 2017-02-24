@@ -16,8 +16,7 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     phone_number: Field::String,
     birthday: Field::DateTime,
-    team_id: Field::Number,
-    image: Field::String,
+    team: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -29,8 +28,9 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :first_name,
+    :team,
     :last_name,
+    :first_name,
     :nickname,
   ].freeze
 
@@ -38,15 +38,14 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :first_name,
     :last_name,
+    :first_name,
     :nickname,
     :user_name,
     :email,
     :phone_number,
     :birthday,
-    :team_id,
-    :image,
+    :team,
     :created_at,
     :updated_at,
   ].freeze
@@ -55,17 +54,13 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :first_name,
     :last_name,
+    :first_name,
     :nickname,
     :user_name,
     :email,
     :phone_number,
-    :status,
-    :role,
     :birthday,
-    :team_id,
-    :image,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
