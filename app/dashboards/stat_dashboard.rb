@@ -9,7 +9,9 @@ class StatDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    user_name: Field::StatsUserField.with_options(users: Team.find(Team::PENGUINS).users),
     user_id: Field::Number,
+    user: Field::BelongsTo,
     game_id: Field::Number,
     two_point_made: Field::Number,
     two_point_attempt: Field::String,
@@ -37,7 +39,7 @@ class StatDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :user_id,
+    :user,
     :game_id,
     :two_point_made,
   ].freeze
@@ -46,7 +48,7 @@ class StatDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :user_id,
+    :user,
     :game_id,
     :two_point_made,
     :two_point_attempt,
@@ -71,7 +73,7 @@ class StatDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user_id,
+    :user_name,
     :game_id,
     :two_point_made,
     :two_point_attempt,
