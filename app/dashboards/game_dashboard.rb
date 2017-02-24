@@ -10,6 +10,7 @@ class GameDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     tournament_id: Field::TeamTournamentField.with_options(tournaments: Team.find(Team::PENGUINS).tournaments),
+    tournament: Field::BelongsTo,
     held_at: Field::DateTime,
     location: Field::String,
     opponent: Field::String,
@@ -26,7 +27,7 @@ class GameDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :tournament_id,
+    :tournament,
     :held_at,
     :location,
   ].freeze
@@ -35,7 +36,7 @@ class GameDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :tournament_id,
+    :tournament,
     :held_at,
     :location,
     :opponent,
@@ -49,7 +50,7 @@ class GameDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :tournament_id,
+    :tournament,
     :held_at,
     :location,
     :opponent,
