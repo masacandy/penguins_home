@@ -8,6 +8,14 @@ module Admin
     #   @resources = Team.all.paginate(10, params[:page])
     # end
 
+    def new
+      render_404
+    end
+
+    def create
+      render_404
+    end
+
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
     #   Team.find_by!(slug: param)
