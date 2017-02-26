@@ -12,7 +12,8 @@ class StatDashboard < Administrate::BaseDashboard
     user_name: Field::StatsUserField.with_options(users: Team.find(Team::PENGUINS).users),
     user_id: Field::Number,
     user: Field::BelongsTo,
-    game_id: Field::Number,
+    game_id: Field::SelectGameField.with_options(games: Team.find(Team::PENGUINS).games.order(id: :desc)),
+    game: Field::BelongsTo,
     two_point_made: Field::Number,
     two_point_attempt: Field::String,
     three_point_made: Field::Number,
@@ -40,7 +41,7 @@ class StatDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
-    :game_id,
+    :game,
     :two_point_made,
   ].freeze
 
@@ -49,7 +50,7 @@ class StatDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :user,
-    :game_id,
+    :game,
     :two_point_made,
     :two_point_attempt,
     :three_point_made,
