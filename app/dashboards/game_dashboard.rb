@@ -61,7 +61,7 @@ class GameDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how games are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(game)
-  #   "Game ##{game.id}"
-  # end
+  def display_resource(game)
+    "vs #{game.opponent}"
+  end
 end
