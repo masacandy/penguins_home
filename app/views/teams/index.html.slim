@@ -4,9 +4,11 @@
     .col.s12.m8.l9
       .row
         .col-12
-          - @team.games.finished.latest(5).each do |game|
-            = link_to "vs #{game.opponent} #{game.team_score} - #{game.opponent_score} #{game.result}", tournament_game_path(tournament_id: game.tournament_id, id: game.id)
-
+          - if @team.games.finished.present?
+            - @team.games.finished.latest(5).each do |game|
+              = link_to "vs #{game.opponent} #{game.team_score} - #{game.opponent_score} #{game.result}", tournament_game_path(tournament_id: game.tournament_id, id: game.id)
+          - else
+            h2.category-name まだ試合が登録されていません
   .row
     h1.title シーズン中の大会スコア
 
