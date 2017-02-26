@@ -14,6 +14,7 @@ class UserDashboard < Administrate::BaseDashboard
     nickname: Field::String,
     user_name: Field::String,
     email: Field::String,
+    number: Field::Number,
     phone_number: Field::String,
     birthday: Field::DateTime,
     team: Field::BelongsTo,
@@ -31,6 +32,7 @@ class UserDashboard < Administrate::BaseDashboard
     :team,
     :last_name,
     :first_name,
+    :number,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,7 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :user_name,
     :email,
-    :team,
+    :number,
     :created_at,
     :updated_at,
   ].freeze
@@ -54,6 +56,7 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :user_name,
     :email,
+    :number,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
