@@ -1,6 +1,9 @@
 .container
   .row
     .col-12
-      -  @tournaments.each do |tournament|
-        p
-          = link_to tournament.name, tournament_path(id: tournament.id)
+      - if @tournaments.present?
+        -  @tournaments.each do |tournament|
+          p
+            = link_to tournament.name, tournament_path(id: tournament.id)
+      - else
+        p 試合が登録されていません
