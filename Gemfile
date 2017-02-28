@@ -43,7 +43,7 @@ gem 'materialize-sass'
 gem "administrate", "~> 0.3.0"
 gem 'bourbon'
 gem 'neat'
-gem 'google-analytics-rails'
+gem 'google-analytics-rails', '1.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
