@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root to: 'teams#index'
 
-  resources 'tournaments', only: %i(show) do
+  resources 'tournaments', only: %i(index show) do
     resources 'games', only: %i(show)
   end
 
