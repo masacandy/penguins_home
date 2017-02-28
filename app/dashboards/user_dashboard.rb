@@ -56,6 +56,7 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :user_name,
     :email,
+    :team,
     :number,
   ].freeze
 
