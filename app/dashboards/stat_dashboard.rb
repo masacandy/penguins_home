@@ -75,7 +75,7 @@ class StatDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :game_id,
+    :game,
     :two_point_made,
     :two_point_attempt,
     :three_point_made,
