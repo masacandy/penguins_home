@@ -270,7 +270,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   draper!
-  google-analytics-rails
+  google-analytics-rails (= 1.1.0)
   guard-livereload (~> 2.5)
   jbuilder (~> 2.5)
   jquery-rails
