@@ -10,6 +10,7 @@ class GameDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     tournament_id: Field::TeamTournamentField.with_options(tournaments: Team.find(Team::PENGUINS).tournaments),
+    team: Field::BelongsTo,
     tournament: Field::BelongsTo,
     held_at: Field::DateTime,
     location: Field::String,
@@ -51,6 +52,7 @@ class GameDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :tournament,
+    :team,
     :held_at,
     :location,
     :opponent,
