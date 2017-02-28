@@ -3,4 +3,4 @@
     .col-12
       - @tournament.games.order(held_at: :desc).each do |game|
         p
-          = link_to game.opponent, tournament_game_path(tournament_id: @tournament.id, id: game.id)
+          = link_to "vs #{game.opponent}", tournament_game_path(tournament_id: @tournament.id, id: game.id)
