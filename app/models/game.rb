@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   has_many :stats
 
   belongs_to :tournament
-  belongs_to :teams
+  belongs_to :team
 
   scope :finished, -> { where('held_at < ?', Time.zone.now) }
   scope :latest, -> (number) { order(held_at: :desc).limit(number) }
