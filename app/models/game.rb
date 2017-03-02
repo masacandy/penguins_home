@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :stats
+  has_many :game_videos
 
   belongs_to :tournament
   belongs_to :team
