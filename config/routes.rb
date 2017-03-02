@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :teams
     resources :tournaments
     resources :users
+    resources :game_videos
 
     root to: "stats#index"
   end
