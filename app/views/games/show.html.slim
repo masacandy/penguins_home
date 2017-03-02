@@ -10,8 +10,7 @@
         h2.category-name 試合動画（画像クリックで再生）
     .row.margin-top-minus-16
       - @game.game_videos.order(sort: :asc).each do |video|
-        iframe.gave-video src="#{video.video_url}" frameborder="0" allowfullscreen
-
+        iframe.col.s12.m4.l3.margin-top-16 src="#{video.video_url}" frameborder="0" allowfullscreen
   .row
     .col.s12.m12.l12
       h2.category-name スタッツ
