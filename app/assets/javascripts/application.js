@@ -37,7 +37,7 @@ $(function (){
         //サムネイルがクリックされた時の処理
         $(this).click(function (){
             //iframeに置き換え。
-            $(this).after('<iframe src="' + movies[index] + '?autoplay=1" class="col s12 m4 l3"></iframe>').remove();
+          $(this).after('<iframe src="' + movies[index] + '?autoplay=1" class="movie col s12 m4 l3"></iframe>').remove();
         });
     });
 });
