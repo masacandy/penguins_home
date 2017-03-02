@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223150300) do
+ActiveRecord::Schema.define(version: 20170302124409) do
+
+  create_table "game_videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "game_id",                   null: false
+    t.string   "video_url",                 null: false
+    t.integer  "sort",       default: 0,    null: false
+    t.boolean  "active",     default: true, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["game_id"], name: "index_game_videos_on_game_id", using: :btree
+  end
 
   create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "tournament_id",  null: false
@@ -87,7 +97,7 @@ ActiveRecord::Schema.define(version: 20170223150300) do
     t.string   "first_name",                          null: false
     t.string   "last_name",              default: ""
     t.string   "nickname"
-    t.integer  "number"
+    t.integer  "number",                                           unsigned: true
     t.string   "user_name",                           null: false
     t.string   "email",                               null: false
     t.string   "phone_number"
